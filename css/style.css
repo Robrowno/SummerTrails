@@ -1,0 +1,38 @@
+:root {
+    --bs-text-opacity: 0.2;
+    --black: #000000;
+    --dark-blue: #14213D;
+    --sunburst-yellow: #FCA311;
+    --silver-grey: #E5E5E5;
+    --white: #FFFFFF;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#navigation {
+    background: var(--bs-text-opacity);
+
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.marker {
+    display: block;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+}
+
+.modal-backdrop.show {
+    z-index: 1;
+}
