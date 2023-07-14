@@ -130,6 +130,8 @@ We would like to give credit to the following individuals, organizations, and re
 
 - The Map was able to be generated using the Mapbox API: [Mapbox API](https://docs.mapbox.com/mapbox-gl-js/example/custom-marker-icons/)
 
+- The user interface was pre-designed and sketched using [Balsamiq](https://balsamiq.com) wireframing tool
+
 
 
 
