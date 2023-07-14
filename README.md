@@ -41,6 +41,15 @@ We want to see users sharing cool views from different places on their travels, 
 
 Users will be able to see what others are up to and sharing and can also see recommended travel destinations around the world.
 
+## UX Design Choices
+
+- *Secure Login Page*: Users will be greeted with a login page to ensure that every person accessing the site must be logged in to post. This design choice helps regulate the content by ensuring that only registered users can create posts in the app. By requiring login credentials, we can maintain a safer and more controlled environment for posting.
+- *Accessible Post Button*: To adhere to established mental maps and provide a user-friendly experience, we will make the post functionality easily accessible. A single red button will be placed at the bottom of the index page, ensuring that users can quickly locate and access the option to create a post. This design choice promotes ease of use and enhances app accessibility by offering clearly identifiable options.
+- *Simple Post Form*: Upon clicking the post button, users will be presented with a straightforward form. This form will allow them to add a title, description, and picture to their current location on the globe. By keeping the form simple and focused, we can streamline the posting process and make it more intuitive for users to share their content.
+
+- *Modal for Image Display*: The images added by the user will be displayed using a modal. By clicking on the marker created on the map, users can access the modal, which will showcase a list of the images associated with the post (up to a maximum of 3 images). Additionally, the modal will include the post's title and description. This design choice allows users to view the images and associated information in a focused and immersive manner.
+- *Clear Close Button and Like Button*: Below each displayed image in the modal, a clear close button will be provided for users to easily close the modal and return to the map view. Additionally, a heart icon will serve as a like button. When clicked, the heart button will change color to red, indicating a successful like action. This visual feedback provides users with a clear indication of their interaction with the image.
+- *Extra Menu for Reporting*: On the top left corner of the image display within the modal, an additional menu will be represented by three white dots. Clicking on these dots will open a menu with various options, including the ability to report an image in case of inappropriate content. This design choice ensures that users have a clear and accessible way to report any content that violates community guidelines or standards.
 
 ## Wireframes, ideas and planning
 
