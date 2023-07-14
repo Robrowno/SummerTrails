@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SummerTrails</title>
+    <title>Login | SummerTrails</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 
     <!-- Main css file-->
@@ -24,6 +24,70 @@
 </head>
 
 <body>
+    <nav id="navigation" class="navbar fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">SummerTrails</a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SummerTrails Menu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./team.html">Our Team</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- <form class="d-flex mt-3" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <!-<button class="btn btn-outline-success" type="submit">Search</button> -->
+                    <!-- </form>  -->
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Mobile view navigation -->
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+        <div class="container-fluid px-5 d-lg-none">
+            <a href="#" class="btn btn-floating">
+                <i class="bi bi-house-door-fill"></i>
+            </a>
+            <a href="#" class="btn btn-floating">
+                <i class="bi bi-map-fill"></i>
+            </a>
+            <a href="#" class="btn btn-floating">
+                <i class="bi bi-search"></i>
+            </a>
+            <a href="#" class="btn btn-floating">
+                <i class="bi bi-person-fill"></i>
+            </a>
+        </div>
+    </nav>
+
+
+
 
 
 
