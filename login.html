@@ -87,22 +87,22 @@
         </div>
     </nav>
     <section id="login" class="container w-75 m-auto">
-
-        <div class="container">
-            <div>
-                <h2>SummerTrails</h2>
+        <h2>Login Details</h2>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="emailAddress">Email address</label>
+                <input type="email" class="form-control" name="emailAddress" id="emailAddress" aria-label="Enter Email"
+                    placeholder="Enter email">
             </div>
-            <div>
-                <Form>
-                    <label>Email:</label>
-                    <input type="email"><input>
-                    <br>
 
-                    <label>Password:</label>
-                    <input type="password"><input>
-                    <button type="submit">Login</button>
-                </form>
+            <div class="form-group mt-2">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
             </div>
+
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+            <br>
+
             <div>
                 <a href="register.html">
                     Register
@@ -114,7 +114,7 @@
                     Forgot Password
                 </a>
             </div>
-        </div>
+        </form>
 
     </section>
 
