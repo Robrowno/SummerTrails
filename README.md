@@ -61,15 +61,15 @@ A link to the project board can be found here: https://github.com/users/Robrowno
 
 We immediately knew we wanted to use the Mapbox API, and A first wireframe draft saw us modelling an app that was not too disimilar to the ROADS app by Porsche. An app where users can use their location to find interested local destinations, road trip ideas and meet up with other users who can share their own custom road trip routes.
 
-![First draft wireframe](./assets/readme-images/initial-wireframe.png)
+![First draft wireframe](./summertrails_project/static/assets/readme-images/initial-wireframe.png)
 
 **Day 2:** On day two, we refined our scope and realised we needed to streamline our focus on getting the frontend right before looking to different features. We went back to the drawing board and came up with an idea of having the map take up the entire screen space - globe front and centre! 
 
 With some hard-coded data we even mapped out how pinned users would appear on the map when they upload an image from their lcoation:
 
-![Mobile Render (Day 2)](./assets/readme-images/day2-progress-mobile.png)
+![Mobile Render (Day 2)](./summertrails_project/static/assets/readme-images/day2-progress-mobile.png)
 
-![Laptop Render (Day 2)](./assets/readme-images/day2-progress-laptop.png)
+![Laptop Render (Day 2)](./summertrails_project/static/assets/readme-images/day2-progress-laptop.png)
 
 
 
@@ -121,11 +121,11 @@ The following technology has been used for this application:
 
 ## Meet the Team
 
-| Callum Dennis | Jhoan Trujillo | Christian Brown | Niclas Tanskanen | Chinonso Olejeme | Richard  |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| ![Callum Dennis](https://ca.slack-edge.com/T0L30B202-U03SRDH32SF-af021d3d5f5a-512) | ![Jhoan Trujillo](https://ca.slack-edge.com/T0L30B202-U058Y63AY9F-a234b1fddb8d-512) | ![Christian Brown](https://ca.slack-edge.com/T0L30B202-U030WF45NKV-1720b6f59b47-512) | ![Niclas Tanskanen](https://ca.slack-edge.com/T0L30B202-U03M22KFF46-11a1d1b943cd-512) | ![Chinonso Olejeme](https://ca.slack-edge.com/T0L30B202-U01S0DB71H8-6119c0e594c3-512) | ![Richard](https://ca.slack-edge.com/T0L30B202-U052XP2E44E-g0ee8c19061e-512) |
-| Developer 1 | Developer 2 | Developer 3 | Developer 4 | Developer 5 | Developer 6 |
-| [Callum Dennis's LinkedIn](https://www.linkedin.com/in/callum-dennis-ireland/) | [Jhoan Trujillo's LinkedIn](https://www.linkedin.com/in/jhoan-trujillo-92b03517b/) | [ Christian Brown's LinkedIn](https://www.linkedin.com/in/christian-brown-ba7741171/) | [Niclas Tanskanen's LinkedIn](https://www.linkedin.com/in/niclastanskanen/) | [Chinonso Olejeme's LinkedIn](https://www.linkedin.com/in/olejeme/) | [Richard's LinkedIn](#) |
+| Callum Dennis | Jhoan Trujillo | Christian Brown | Niclas Tanskanen | Chinonso Olejeme |
+| :---: | :---: | :---: | :---: | :---: |
+| ![Callum Dennis](https://ca.slack-edge.com/T0L30B202-U03SRDH32SF-af021d3d5f5a-512) | ![Jhoan Trujillo](https://ca.slack-edge.com/T0L30B202-U058Y63AY9F-a234b1fddb8d-512) | ![Christian Brown](https://ca.slack-edge.com/T0L30B202-U030WF45NKV-1720b6f59b47-512) | ![Niclas Tanskanen](https://ca.slack-edge.com/T0L30B202-U03M22KFF46-11a1d1b943cd-512) | ![Chinonso Olejeme](https://ca.slack-edge.com/T0L30B202-U01S0DB71H8-6119c0e594c3-512) |
+| Developer 1 | Developer 2 | Developer 3 | Developer 4 | Developer 5 |
+| [Callum Dennis's LinkedIn](https://www.linkedin.com/in/callum-dennis-ireland/) | [Jhoan Trujillo's LinkedIn](https://www.linkedin.com/in/jhoan-trujillo-92b03517b/) | [ Christian Brown's LinkedIn](https://www.linkedin.com/in/christian-brown-ba7741171/) | [Niclas Tanskanen's LinkedIn](https://www.linkedin.com/in/niclastanskanen/) | [Chinonso Olejeme's LinkedIn](https://www.linkedin.com/in/olejeme/) |
 
 
 -----

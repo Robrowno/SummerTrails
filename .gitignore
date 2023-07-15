@@ -102,4 +102,5 @@ local.properties
 *.pem
 *.key
 *.pub
+env.py
 
