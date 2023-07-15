@@ -105,4 +105,6 @@ local.properties
 env.py
 
 .ourVenv
+.venv 
+.venv/
 
