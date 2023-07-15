@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<section id="delete-profile" class="container w-75 m-auto pt-5">
+  <h2>Delete Profile</h2>
+  <p>Are you sure you want to delete your profile?</p>
+  <form action="{% url 'delete_profile' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </form>
+</section>
+{% endblock content %}

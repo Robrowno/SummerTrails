@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="pt-5 text-center">
+  <h2>Profile</h2>
+  {% if user.profile_image %}
+  <p>
+    <img src="{{ user.profile_image.url }}" alt="Profile Picture" />
+  </p>
+  {% else %}
+  Profile Image:
+  <p>No profile image available</p>
+  {% endif %}
+  <p>Username: {{ user.username }}</p>
+  <p>Email: {{ user.email }}</p>
+  <p>Main Location: {{ user.main_location }}</p>
+  <p>Biography: {{ user.biography }}</p>
+  <p>Interests: {{ user.interests }}</p>
+
+  <a href="" class="btn btn-primary">Edit Profile</a>
+  <a href="{% url 'delete_profile' %}" class="btn btn-danger">Delete Profile</a>
+
+  <form action="/profile/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="profile_image">Profile Image:</label>
+    <input type="file" name="profile_image" id="profile_image" />
+    <br />
+    <label for="main_location">Main Location:</label>
+    <input type="text" name="main_location" value="{{ user.main_location }}" />
+    <br />
+    <label for="biography">Biography:</label>
+    <textarea name="biography">{{ user.biography }}</textarea>
+    <br />
+    <label for="interests">Interests:</label>
+    <input type="text" name="interests" value="{{ user.interests }}" />
+    <br />
+    <input type="submit" value="Update Profile" />
+  </form>
+</div>
+{% endblock %}
