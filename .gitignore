@@ -104,3 +104,5 @@ local.properties
 *.pub
 env.py
 
+.ourVenv
+
