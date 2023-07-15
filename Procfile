@@ -1,1 +1,1 @@
-web: gunicorn summertrails_project/home.wsgi
+web: gunicorn home.wsgi
