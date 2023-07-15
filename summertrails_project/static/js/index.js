@@ -1,5 +1,5 @@
 mapboxgl.accessToken =
-    "";
+    "pk.eyJ1IjoiY2FsbHVtZGVubmlzaWUiLCJhIjoiY2xrMW04a2ZvMDc2aTNsamttOHljdXNjcCJ9.gPaE7goTXyhK9_ICpSsjbg";
 const geojson = {
     type: "FeatureCollection",
     features: [
