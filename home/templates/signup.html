@@ -1,42 +1,63 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <!-- Signup Form -->
-<section id="signup" class="container w-75 m-auto">
-    <h2>Signup Form</h2>
-    <form action="#" method="POST">
-        <div class="form-group">
-            <label for="emailAddress">Email address</label>
-            <input type="email" class="form-control" name="emailAddress" id="emailAddress" aria-label="Enter Email"
-                placeholder="Enter email">
-        </div>
-        <div class="form-group mt-2">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" name="username" id="username" aria-label="Enter username"
-                placeholder="Enter username">
-        </div>
-        <div class="form-group mt-2">
-            <label for="fullname">Fullname</label>
-            <input type="text" class="form-control" name="fullname" id="fullname" aria-label="Enter username"
-                placeholder="Enter username">
-        </div>
-        <div class="form-group mt-2">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password">
-        </div>
-        <div class="form-group mt-2">
-            <label for="confirmPassword">Confirm Password</label>
-            <input type="password" class="form-control" name="confirmPassword" id="confirmPassword"
-                placeholder="Password">
-        </div>
+<section id="signup" class="container w-75 m-auto pt-5">
+  <h2>Signup Form</h2>
+  <form action="{% url 'signup' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="emailAddress">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        id="emailAddress"
+        aria-label="Enter Email"
+        placeholder="Enter email"
+        required
+      />
+    </div>
+    <div class="form-group mt-2">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        name="username"
+        id="username"
+        aria-label="Enter username"
+        placeholder="Enter username"
+        required
+      />
+    </div>
+    <div class="form-group mt-2">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        name="password1"
+        id="password"
+        placeholder="Password"
+        required
+      />
+    </div>
+    <div class="form-group mt-2">
+      <label for="confirmPassword">Confirm Password</label>
+      <input
+        type="password"
+        class="form-control"
+        name="password2"
+        id="confirmPassword"
+        placeholder="Password"
+        required
+      />
+    </div>
 
-
-        <button type="submit" class="btn btn-primary mt-2">Submit</button>
-        <div>
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                else.</small>
-        </div>
-
-    </form>
+    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+    <div>
+      <small id="emailHelp" class="form-text text-muted"
+        >We'll never share your email with anyone else.</small
+      >
+    </div>
+  </form>
 </section>
-
 
 {% endblock content %}
