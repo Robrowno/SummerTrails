@@ -131,7 +131,7 @@
     <!-- Mobile view navigation -->
     <nav class="navbar fixed-bottom navbar-light bg-light">
       <div class="container-fluid px-5 d-lg-none">
-        <a href="#" class="btn btn-floating">
+        <a href="{% url 'home' %}" class="btn btn-floating">
           <i class="bi bi-house-door-fill"></i>
         </a>
         <a href="#" class="btn btn-floating">
@@ -140,9 +140,17 @@
         <a href="#" class="btn btn-floating">
           <i class="bi bi-search"></i>
         </a>
-        <a href="#" class="btn btn-floating">
+        {% if user.is_authenticated %}
+        <a href="{% url 'profile' %}" class="btn btn-floating">
           <i class="bi bi-person-fill"></i>
+          {{ user.username }}
         </a>
+      {% else %}
+        <a href="{% url 'login' %}" class="btn btn-floating">
+          <i class="bi bi-person-fill-add"></i>
+          Login
+        </a>
+      {% endif %}
       </div>
     </nav>
 
