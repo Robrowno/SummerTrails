@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from home.forms import SignUpForm
 
@@ -39,3 +40,26 @@ def signup_view(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        user = request.user
+        user.main_location = request.POST.get('main_location')
+        user.biography = request.POST.get('biography')
+        user.interests = request.POST.get('interests')
+        profile_image = request.FILES.get('profile_image')
+        if profile_image:
+            user.profile_image = profile_image
+        user.save()
+        return redirect('profile') # Redirect to profile page
+    
+    return render(request, 'profile.html')
+
+@login_required
+def delete_profile(request):
+    if request.method == 'POST':
+        user = request.user
+        user.delete()
+        return redirect('/')
+    return render(request, 'delete_profile.html')
