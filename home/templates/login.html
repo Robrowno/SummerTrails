@@ -3,6 +3,19 @@
 {% block content %}
 <section id="login" class="container w-75 m-auto pt-5">
   <h2>Login Details</h2>
+  {% if messages %}
+    {% for message in messages %}
+      {% if message.tags == 'success' %}
+        <div class="alert alert-success mt-4">
+          {{ message }}
+        </div>
+      {% elif message.tags == 'error' %}
+        <div class="alert alert-danger mt-4">
+          {{ message }}
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
   <form action="{% url 'login' %}" method="POST">
     {% csrf_token %}
     <div class="form-group">
@@ -34,7 +47,7 @@
     <br />
 
     <div>
-      <a href="register.html"> Register </a>
+      <a href="{% url 'signup' %}"> Register </a>
     </div>
 
     <div class>
