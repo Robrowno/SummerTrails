@@ -1,14 +1,15 @@
-import time
 from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from home.forms import SignUpForm, UploadImageForm
+from authentication.models import PhotoImage
 
 def home(request):
-    '''View function for home page of site.'''
-    return render(request, "index.html")
+    images = PhotoImage.objects.all()
+    context = {'images': images}
+    return render(request, "index.html", context)
 
 def teams(request):
     '''View function for teams page of site.'''
