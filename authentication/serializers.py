@@ -20,6 +20,7 @@ class UserLoginSerializer(serializers.Serializer):
     password = serializers.CharField(max_length=128)
 
 class PhotoImageSerializer(serializers.ModelSerializer):
+    image = serializers.ImageField(use_url=True)
     class Meta:
         model = PhotoImage
         fields = ['id', 'user', 'image', 'title', 'content', 'latitude', 'longitude']
