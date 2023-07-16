@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from home.forms import SignUpForm, UploadImageForm
+from home.forms import SignUpForm, UploadImageForm, ImageForm
 from authentication.models import PhotoImage
 
 def home(request):
@@ -81,3 +81,26 @@ def upload_image(request):
     else:
         form = UploadImageForm()
     return render(request, 'upload_image.html', {'form': form})
+
+@login_required
+def edit_image(request, pk):
+    image = get_object_or_404(PhotoImage, pk=pk)
+
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES, instance=image)
+        if form.is_valid():
+            image = form.save()
+            return redirect('profile')
+    else:
+        form = ImageForm(instance=image)
+
+    return render(request, 'edit_image.html', {'form': form, 'image': image})
+
+@login_required
+def delete_image(request, pk):
+    image = get_object_or_404(PhotoImage, pk=pk)
+    if request.method == 'POST':
+        image.delete()
+        messages.success(request, "Post deleted successfully!")
+        return redirect('profile')
+    return render(request, 'delete_image.html', {'image': image})
