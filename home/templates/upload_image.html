@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section id="upload-image" class="container w-75 m-auto pt-5">
+  <h2>Upload Image</h2>
+  <form action="{% url 'upload_image' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input type="file" class="form-control-file" name="image" id="image" accept="image/*" required>
+    </div>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" name="title" id="title" required>
+    </div>
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea class="form-control" name="content" id="content" rows="5" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Upload</button>
+  </form>
+</section>
+{% endblock %}

@@ -17,3 +17,12 @@ class User(AbstractUser):
     )
     def __str__(self):
         return self.username
+    
+class PhotoImage(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='photos')
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.title

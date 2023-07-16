@@ -1,6 +1,7 @@
 from django.contrib.auth.hashers import make_password
 from rest_framework import serializers
-from .models import User
+from .models import User, PhotoImage
+
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
@@ -17,3 +18,8 @@ class UserSerializer(serializers.ModelSerializer):
 class UserLoginSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=255)
     password = serializers.CharField(max_length=128)
+
+class PhotoImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PhotoImage
+        fields = ['id', 'image', 'title', 'content', 'user']
