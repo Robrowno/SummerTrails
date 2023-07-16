@@ -34,5 +34,17 @@
     <br />
     <input type="submit" value="Update Profile" />
   </form>
+  <h3 class="pt-5 text-center">My Posts:</h3>
+  {% for post in user.photoimage_set.all %}
+  <div class="card text-center" style="width: 18rem;">
+    <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+    <div class="card-body">
+    <p class="text">Title: {{ post.title }}</p>
+    <p class="text">Content: {{ post.content }}</p>
+  </div>
+  </div>
+  {% empty %}
+  <p>No posts available.</p>
+  {% endfor %}
 </div>
 {% endblock %}
