@@ -15,5 +15,4 @@ class UserPostsAPIView(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        user = self.request.user
-        return PhotoImage.objects.filter(user=user)
+        return PhotoImage.objects.all()
