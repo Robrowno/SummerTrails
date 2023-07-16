@@ -1,3 +1,4 @@
+import time
 from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login, logout
@@ -19,7 +20,7 @@ def login_view(request):
         password = request.POST.get("password")
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            login(request,user)
+            login(request, user)
             return redirect("/")
         else:
             messages.error(request, "Invalid username or password.")
@@ -30,15 +31,18 @@ def signup_view(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
+            username = form.cleaned_data.get("username")
+            messages.success(request, f"Account created for {username}! Please login.")
             return redirect('login')
         else:
-            print(form.errors)  # Print form errors to the console
+            messages.error(request, "Invalid form data.")
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
 
 def logout_view(request):
     logout(request)
+    messages.success(request, "Logged out successfully!")
     return redirect('/')
 
 @login_required
