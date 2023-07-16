@@ -3,7 +3,7 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from home.forms import SignUpForm
+from home.forms import SignUpForm, UploadImageForm
 
 def home(request):
     '''View function for home page of site.'''
@@ -63,3 +63,16 @@ def delete_profile(request):
         user.delete()
         return redirect('/')
     return render(request, 'delete_profile.html')
+
+@login_required
+def upload_image(request):
+    if request.method == 'POST':
+        form = UploadImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.user = request.user
+            image.save()
+            return redirect('home')
+    else:
+        form = UploadImageForm()
+    return render(request, 'upload_image.html', {'form': form})

@@ -1,6 +1,7 @@
 from rest_framework import generics
-from .serializers import UserSerializer, UserLoginSerializer
-from .models import User
+from rest_framework.permissions import IsAuthenticated
+from .serializers import UserSerializer, UserLoginSerializer, PhotoImageSerializer
+from .models import User, PhotoImage
 
 class UserListAPIView(generics.ListAPIView):
     queryset = User.objects.all()
@@ -8,3 +9,11 @@ class UserListAPIView(generics.ListAPIView):
 
 class UserLoginAPIView(generics.CreateAPIView):
     serializer_class = UserLoginSerializer
+
+class UserPostsAPIView(generics.ListAPIView):
+    serializer_class = PhotoImageSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        return PhotoImage.objects.filter(user=user)
