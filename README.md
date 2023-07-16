@@ -75,6 +75,12 @@ With some hard-coded data we even mapped out how pinned users would appear on th
 
 **Day 3:** 
 
+Converted project to Django 4.2.2
+
+We experienced some teething issues when installing Django, where we were using the incorrect file steructure for using Django 4.2 - once that was resolved we could run the `python3 manage.py runserver` and `python3 manage.py migrate` commands.
+
+We also changed the html template structure to suit Django, and began setting up a Django REST API. Some functionality we needed was started/completed - namely most of the authentication.
+
 
 
 ---
@@ -85,14 +91,14 @@ With some hard-coded data we even mapped out how pinned users would appear on th
 
 The following technology has been used for this application:
 
-- Markup Languages: HTML5, CSS3
-- Styling frameworks: Bootstrap v5.2
-- Programming Languages: Javascript
-- Frameworks: 
-- Agile/Project-mapping: Github Projects, Github Issues
-- Wireframes: Balsamiq
-- IDE: VS Code
-- Version Control: Git
+- Markup Languages: **HTML5**, **CSS3**
+- Styling frameworks: **Bootstrap v5.2**
+- Programming Languages: **Javascript**, **Python v3.9.6**
+- Frameworks: **Django v4.2.2**, **Django REST Framework**
+- Agile/Project-mapping: **Github Projects**, **Github Issues**
+- Wireframes: **Balsamiq**
+- IDE: **VS Code**, **CodeAnywhere**
+- Version Control: **Git**
 
 
 ### Testing 
@@ -113,6 +119,8 @@ The following technology has been used for this application:
 
 - We had an canvas overflow issue from the nav bar which we solved by inspecting in the console and adding a z-index of 1 to one of the classes properties.
 
+- We had some issues in installing requirements on different machines locally, especially between those of use using VS Code and CodeAnywhere. It seemed the solution a lot of the time was to start a new virtual environment and delete and re-install the packages using `pip3 install -r requirements.txt` and then `pip3 freeze > requirements.txt`
+
 
 
 -----
@@ -124,7 +132,7 @@ The following technology has been used for this application:
 | Callum Dennis | Jhoan Trujillo | Christian Brown | Niclas Tanskanen | Chinonso Olejeme |
 | :---: | :---: | :---: | :---: | :---: |
 | ![Callum Dennis](https://ca.slack-edge.com/T0L30B202-U03SRDH32SF-af021d3d5f5a-512) | ![Jhoan Trujillo](https://ca.slack-edge.com/T0L30B202-U058Y63AY9F-a234b1fddb8d-512) | ![Christian Brown](https://ca.slack-edge.com/T0L30B202-U030WF45NKV-1720b6f59b47-512) | ![Niclas Tanskanen](https://ca.slack-edge.com/T0L30B202-U03M22KFF46-11a1d1b943cd-512) | ![Chinonso Olejeme](https://ca.slack-edge.com/T0L30B202-U01S0DB71H8-6119c0e594c3-512) |
-| Developer 1 | Developer 2 | Developer 3 | Developer 4 | Developer 5 |
+| Full-Stack | Front-End | SCRUM Master | Back-End | Front-End |
 | [Callum Dennis's LinkedIn](https://www.linkedin.com/in/callum-dennis-ireland/) | [Jhoan Trujillo's LinkedIn](https://www.linkedin.com/in/jhoan-trujillo-92b03517b/) | [ Christian Brown's LinkedIn](https://www.linkedin.com/in/christian-brown-ba7741171/) | [Niclas Tanskanen's LinkedIn](https://www.linkedin.com/in/niclastanskanen/) | [Chinonso Olejeme's LinkedIn](https://www.linkedin.com/in/olejeme/) |
 
 
