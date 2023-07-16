@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser, Group as AuthGroup
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 class User(AbstractUser):
     profile_image = models.ImageField(upload_to='profile_images', blank=True, null=True)
@@ -20,7 +21,7 @@ class User(AbstractUser):
     
 class PhotoImage(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='photos')
+    image = CloudinaryField('image')
     title = models.CharField(max_length=100)
     content = models.TextField()
     latitude = models.FloatField(blank=True, null=True)

@@ -40,12 +40,25 @@ map.on("load", () => {
             el.style.backgroundSize = "100%";
 
             el.addEventListener("click", () => {
-                myModal.show();
+                openLightbox(image);
             });
 
             // Add markers to the map.
             new mapboxgl.Marker(el).setLngLat(marker.geometry.coordinates).addTo(map);
         }
+    }
+
+    function openLightbox(imageUrl) {
+        const lightbox = document.createElement("div");
+        lightbox.className = "lightbox";
+        lightbox.innerHTML = `
+                <img src="${imageUrl}" alt="Image" class="lightbox-image" />
+        `;
+        document.body.appendChild(lightbox);
+
+        lightbox.addEventListener("click", () => {
+            lightbox.remove();
+        });
     }
 
     // Make an AJAX request to fetch the photo information
