@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="edit-image" class="container w-75 m-auto pt-5">
+  <h2>Edit Image</h2>
+  <form action="{% url 'edit_image' pk=image.pk %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input type="file" class="form-control-file" id="image" name="image">
+    </div>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title" value="{{ image.title }}" required>
+    </div>
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea class="form-control" id="content" name="content" rows="3">{{ image.content }}</textarea>
+    </div>
+    <div class="form-group">
+      <label for="latitude">Latitude</label>
+      <input type="text" class="form-control" id="latitude" name="latitude" value="{{ image.latitude }}">
+    </div>
+    <div class="form-group">
+      <label for="longitude">Longitude</label>
+      <input type="text" class="form-control" id="longitude" name="longitude" value="{{ image.longitude }}">
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+  </form>
+  <form action="{% url 'delete_image' pk=image.pk %}" method="POST" class="mt-4" onsubmit="return confirm('Are you sure you want to delete this photo?');">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Delete Photo</button>
+  </form>
+</section>
+{% endblock content %}

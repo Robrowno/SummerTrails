@@ -1,8 +1,6 @@
 from django import forms
-from authentication.models import User
+from authentication.models import User, PhotoImage
 from django.contrib.auth.forms import UserCreationForm
-from authentication.models import PhotoImage
-
 
 
 class SignUpForm(UserCreationForm):
@@ -14,3 +12,8 @@ class UploadImageForm(forms.ModelForm):
     class Meta:
         model = PhotoImage
         fields = ('image', 'title', 'content', 'latitude', 'longitude')
+
+class ImageForm(forms.ModelForm):
+    class Meta:
+        model = PhotoImage
+        fields = ['image', 'title', 'content', 'latitude', 'longitude']
