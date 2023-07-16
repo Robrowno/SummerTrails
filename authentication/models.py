@@ -23,6 +23,8 @@ class PhotoImage(models.Model):
     image = models.ImageField(upload_to='photos')
     title = models.CharField(max_length=100)
     content = models.TextField()
+    latitude = models.FloatField(blank=True, null=True)
+    longitude = models.FloatField(blank=True, null=True)
 
     def __str__(self):
         return self.title

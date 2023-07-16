@@ -13,4 +13,4 @@ class SignUpForm(UserCreationForm):
 class UploadImageForm(forms.ModelForm):
     class Meta:
         model = PhotoImage
-        fields = ('image', 'title', 'content')
+        fields = ('image', 'title', 'content', 'latitude', 'longitude')

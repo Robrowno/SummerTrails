@@ -22,4 +22,4 @@ class UserLoginSerializer(serializers.Serializer):
 class PhotoImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = PhotoImage
-        fields = ['id', 'image', 'title', 'content', 'user']
+        fields = ['id', 'user', 'image', 'title', 'content', 'latitude', 'longitude']
