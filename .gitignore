@@ -108,3 +108,7 @@ env.py
 .venv 
 .venv/
 
+
+# collectstatic
+/staticfiles
+.staticfiles
