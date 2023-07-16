@@ -3,7 +3,7 @@
 
 ## Deployment
 #### _(please note, your team must also include the deployed links in the usual submission in Hackapp)_
-The project is deployed and can be accessed at [http://your-deployed-link.com](http://your-deployed-link.com).
+The project is deployed and can be accessed by [clicking here!](https://summertrails-heroku-dd7388a15196.herokuapp.com/).
 
 
 ---
@@ -61,15 +61,15 @@ A link to the project board can be found here: https://github.com/users/Robrowno
 
 We immediately knew we wanted to use the Mapbox API, and A first wireframe draft saw us modelling an app that was not too disimilar to the ROADS app by Porsche. An app where users can use their location to find interested local destinations, road trip ideas and meet up with other users who can share their own custom road trip routes.
 
-![First draft wireframe](./summertrails_project/static/assets/readme-images/initial-wireframe.png)
+![First draft wireframe](./static/assets/readme-images/initial-wireframe.png)
 
 **Day 2:** On day two, we refined our scope and realised we needed to streamline our focus on getting the frontend right before looking to different features. We went back to the drawing board and came up with an idea of having the map take up the entire screen space - globe front and centre! 
 
 With some hard-coded data we even mapped out how pinned users would appear on the map when they upload an image from their lcoation:
 
-![Mobile Render (Day 2)](./summertrails_project/static/assets/readme-images/day2-progress-mobile.png)
+![Mobile Render (Day 2)](./static/assets/readme-images/day2-progress-mobile.png)
 
-![Laptop Render (Day 2)](./summertrails_project/static/assets/readme-images/day2-progress-laptop.png)
+![Laptop Render (Day 2)](./static/assets/readme-images/day2-progress-laptop.png)
 
 
 
