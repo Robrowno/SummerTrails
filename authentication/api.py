@@ -12,7 +12,4 @@ class UserLoginAPIView(generics.CreateAPIView):
 
 class UserPostsAPIView(generics.ListAPIView):
     serializer_class = PhotoImageSerializer
-    permission_classes = [IsAuthenticated]
-
-    def get_queryset(self):
-        return PhotoImage.objects.all()
+    queryset = PhotoImage.objects.all()
