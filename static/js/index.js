@@ -33,6 +33,10 @@ map.on("load", () => {
             const width = marker.properties.iconSize[0];
             const height = marker.properties.iconSize[1];
             const image = marker.properties.image;
+            const title = marker.properties.title;
+            const content = marker.properties.content;
+            const user = marker.properties.user;
+
             el.className = "marker";
             el.style.backgroundImage = `url(${image})`;
             el.style.width = `${width}px`;
@@ -40,26 +44,35 @@ map.on("load", () => {
             el.style.backgroundSize = "100%";
 
             el.addEventListener("click", () => {
-                openLightbox(image);
+                openLightbox(image, title, content, user);
             });
 
             // Add markers to the map.
-            new mapboxgl.Marker(el).setLngLat(marker.geometry.coordinates).addTo(map);
+            new mapboxgl.Marker(el)
+            .setLngLat(marker.geometry.coordinates)
+            .addTo(map);
         }
     }
 
-    function openLightbox(imageUrl) {
+    function openLightbox(imageUrl, title, content, user) {
         const lightbox = document.createElement("div");
         lightbox.className = "lightbox";
         lightbox.innerHTML = `
-                <img src="${imageUrl}" alt="Image" class="lightbox-image" />
+          <div class="lightbox-content">
+            <img src="${imageUrl}" alt="Image" class="lightbox-image" />
+            <div class="image-details">
+              <h4>${title}</h4>
+              <p>${content}</p>
+              <p>Uploaded by: ${user}</p>
+            </div>
+          </div>
         `;
         document.body.appendChild(lightbox);
-
+      
         lightbox.addEventListener("click", () => {
-            lightbox.remove();
+          lightbox.remove();
         });
-    }
+      }
 
     // Make an AJAX request to fetch the photo information
     const baseUrl = window.location.hostname === "127.0.0.1" ? "http://127.0.0.1:8000" : "https://summertrails-heroku-dd7388a15196.herokuapp.com";
@@ -73,8 +86,10 @@ map.on("load", () => {
                 const feature = {
                     type: "Feature",
                     properties: {
-                        message: photo.title,
+                        title: photo.title,
                         image: photo.image,
+                        content: photo.content,
+                        user: photo.user,
                         iconSize: [40, 40],
                         icon: "marker"
                     },
