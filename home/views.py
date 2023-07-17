@@ -73,7 +73,7 @@ def delete_profile(request):
         return redirect('/')
     return render(request, 'delete_profile.html')
 
-@login_required
+@login_required(login_url='signup')
 def upload_image(request):
     if request.method == 'POST':
         form = UploadImageForm(request.POST, request.FILES)
@@ -84,6 +84,7 @@ def upload_image(request):
             return redirect('home')
     else:
         form = UploadImageForm()
+    
     return render(request, 'upload_image.html', {'form': form})
 
 @login_required
