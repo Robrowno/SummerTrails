@@ -22,12 +22,12 @@ body {
   background-color: green;
 }
 
-p, 
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
 h6,
 label {
   color: var(--high-contrast) !important;
@@ -67,6 +67,7 @@ button.accent-button {
 .accent-text-color {
   color: var(--accent-color) !important;
 }
+
 /* Navigation */
 
 #navigation {
@@ -74,7 +75,8 @@ button.accent-button {
   background: var(--dark-color);
 }
 
-.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link{
+.navbar-nav .nav-link.active,
+.navbar-nav .show>.nav-link {
   color: var(--accent-color) !important;
   text-decoration: underline !important;
 }
@@ -82,6 +84,7 @@ button.accent-button {
 .navbar-nav .nav-link.active {
   color: var(--accent-color) !important;
 }
+
 
 /* Map section */
 #map {
@@ -149,6 +152,7 @@ button.accent-button {
   height: 100vh;
   background: var(--dark-color);
 }
+
 /* Login page */
 section#login {
   height: 100vh !important;
@@ -171,4 +175,13 @@ i.social-icons {
   color: var(--high-contrast);
   margin-top: 1em;
   font-size: 1.5em;
+}
+
+
+/* Footer height on larger screens */
+@media screen and (min-width: 768px) {
+
+  .fixed-bottom {
+    height: 4% !important;
+  }
 }

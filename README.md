@@ -1,12 +1,19 @@
 <h1 align="center"><strong>🌞🚵 SummerTrails 🏄🏖️</strong>
 </h1>
 
+<h4 align="center">A Summer-Traveller's App!</h2>
+
+<p align="center">
+<img height="300px" width="300px" src="./static/assets/images/globe.png">
+</p>
+<p align="center">"Snap your world, pin your path, share your journey - we're redefining exploring!"</p>
+
 ## Deployment
-#### _(please note, your team must also include the deployed links in the usual submission in Hackapp)_
+
 The project is deployed and can be accessed by [clicking here!](https://summertrails-heroku-dd7388a15196.herokuapp.com/).
 
+If you'd like to see the original repository, that can be found by following [this link](https://github.com/Robrowno/SummerTrails)
 
----
 &nbsp;
 
 ## Criteria
@@ -18,7 +25,7 @@ In this section, we will briefly discuss how our team addressed the applicable c
 - ✨ Clear use of Github Projects or other agile tool
 - ✨ Presentation Quality - Present as if you are pitching it to client
 
----
+
 &nbsp;
 
 ## Intro
@@ -28,7 +35,7 @@ SummerTrails is a location-service app for users to share photos and pin them to
 Users can share where they have been over the summer and the many sights they have seen with other like-minded users.
 
 
----
+
 &nbsp;
 
 ## Goal
@@ -65,6 +72,10 @@ We immediately knew we wanted to use the Mapbox API, and A first wireframe draft
 
 **Day 2:** On day two, we refined our scope and realised we needed to streamline our focus on getting the frontend right before looking to different features. We went back to the drawing board and came up with an idea of having the map take up the entire screen space - globe front and centre! 
 
+Wireframes were redrafted as a result and so we developed a new plan that looked something like this:
+
+![New Wireframe](./static/assets/readme-images/updated-wireframe.png)
+
 With some hard-coded data we even mapped out how pinned users would appear on the map when they upload an image from their lcoation:
 
 ![Mobile Render (Day 2)](./static/assets/readme-images/day2-progress-mobile.png)
@@ -77,11 +88,33 @@ With some hard-coded data we even mapped out how pinned users would appear on th
 
 Converted project to Django 4.2.2
 
-We experienced some teething issues when installing Django, where we were using the incorrect file steructure for using Django 4.2 - once that was resolved we could run the `python3 manage.py runserver` and `python3 manage.py migrate` commands.
+We experienced some teething issues when installing Django, where we were using the incorrect file structure for using Django 4.2 - once that was resolved we could run the `python3 manage.py runserver` and `python3 manage.py migrate` commands.
 
 We also changed the html template structure to suit Django, and began setting up a Django REST API. Some functionality we needed was started/completed - namely most of the authentication.
 
+We also successully made our first migrations and started work on other pages that would be required for the application. We paired the application up with an ElephantSQL PostgreSQL RBDMS and successfully made our first deployment to Heroku.
 
+
+
+**Day 4**
+
+Big progress - we made big strides on the backend thanks to Niclas's great work in this area, and we also succesfully implemented login/signup/logout functionality as well as the creation and editing of a User Profile section. 
+
+We spent a lot of time then implementing cloudinary and fixing other small bugs which would allow us to work towards polishing the work we'd put into this so far and make another final push for the 5th and final day.
+
+
+
+**Day 5**
+
+Some great strides again - We fixed some more bugs, implemented more styling updates/changes and bug fixes and began the final touches required for the hackathon project submission.
+
+A geolocation API was being explored as well as what we had implemented so far.
+
+The README.md had to finished, all project details added to the C.I Hackathon app and a 3-minute-max video for presentation in the afternoon.
+
+
+Nearing the end of the submission deadline, we had a project that now looked like this:
+![Project Screenshot](./static/assets/readme-images/current-look.png)
 
 ---
 
@@ -96,6 +129,9 @@ The following technology has been used for this application:
 - Programming Languages: **Javascript**, **Python v3.9.6**
 - Frameworks: **Django v4.2.2**, **Django REST Framework**
 - Agile/Project-mapping: **Github Projects**, **Github Issues**
+- Cloud Delivery Networks: **Cloudinary**
+- RDBMS: **PostgreSQL**
+- Database Hosting Service: **ElephantSQL**
 - Wireframes: **Balsamiq**
 - IDE: **VS Code**, **CodeAnywhere**
 - Version Control: **Git**
@@ -108,8 +144,28 @@ The following technology has been used for this application:
     - MacOS/Unix
     - Windows
     - iOS
+
+- It has been tested on the following mobile screens:
+    - iPhone X
+    - iPhone 12 Pro
+    - Samsung Galaxy S8+
+    - Pixel 5
     
----
+
+&nbsp;
+
+## Future Implementations/Ideas
+
+- **Travel Diary:** Implement some sort of chronological tracker for users to map out their travels .
+- **Comment & Like:** User ability to comment and like on other's uploads and view comments and likes on their own posts.
+- **Social Media integration:** Upload to other socials or share their other social accounts on their profile.
+- **Advanced Search Filters:** Search based on profile interests, location and more!
+- **Location-based Recommendations from the app:** Recommendations based on your active location.
+- **Weather forecast based on location:** A weather forecast page which can use another API to retrieve current and forecasted weather predictions.
+- **Achievement Badges:** (Post 100 photos, 200 photos, 500 photos, 1000 photos), (Visit 2 new countries, 5 new countries, 10 new countries), (Interact with: 2 posts, 5 posts, 10 posts, 20 posts, 50 posts) - collect badges for all of these!
+- **Photo Album creation:** Compile your images and sort them in to albums to reminice about your travels over time.
+- **Auto-deleting of pins after 'x' hours:** We will need to implement a means of clearing pins on the map that have been there longer than a specified period of time. This will ensure content is new and put less strain on the DB - **Perhaps 24 or 48hrs.**
+
 
 &nbsp;
 
@@ -120,6 +176,14 @@ The following technology has been used for this application:
 - We had an canvas overflow issue from the nav bar which we solved by inspecting in the console and adding a z-index of 1 to one of the classes properties.
 
 - We had some issues in installing requirements on different machines locally, especially between those of use using VS Code and CodeAnywhere. It seemed the solution a lot of the time was to start a new virtual environment and delete and re-install the packages using `pip3 install -r requirements.txt` and then `pip3 freeze > requirements.txt`
+
+- We struggled to implement cloudinary to begin with and once we had done so, we noticed that uploaded photos were not converted to the cloudinary urls in the database.
+Niclas found the solution for this, which was to set use_url=True in this segment of the serializers.py PhotoImageSerializer class: `image = serializers.ImageField(use_url=True)`
+
+- We found you'd get a 404 error when logged out and clicked on the photo upload icon in the mobile nav - this has now been rectified to redirect to the sign up form as you need to be logged in to make posts.
+
+
+**!NOTE:** If you spot any bugs on the site that we might not be aware of, please get in touch with one of us on Linkedin to inform us and we'll address it as soon as we can!
 
 
 
@@ -155,3 +219,5 @@ We would like to give credit to the following individuals, organizations, and re
 -----
 
 ![Summer of Code Banner](https://res.cloudinary.com/djdefbnij/image/upload/v1688114955/Summer_2_owummy.png)
+
+-----
