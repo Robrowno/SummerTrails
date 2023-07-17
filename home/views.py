@@ -56,7 +56,11 @@ def profile(request):
         profile_image = request.FILES.get('profile_image')
         if profile_image:
             user.profile_image = profile_image
-        user.save()
+        try:
+            user.save()
+            messages.success(request, 'Profile updated successfully.')
+        except Exception as e:
+            messages.error(request, f'An error occurred: {str(e)}')
         return redirect('profile') # Redirect to profile page
     
     return render(request, 'profile.html')
