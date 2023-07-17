@@ -1,54 +1,72 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="pt-5 text-center">
-  <h2>Profile</h2>
-  {% if user.profile_image %}
-  <p>
-    <img src="{{ user.profile_image.url }}" alt="Profile Picture" />
-  </p>
-  {% else %}
-  Profile Image:
-  <p>No profile image available</p>
-  {% endif %}
-  <p>Username: {{ user.username }}</p>
-  <p>Email: {{ user.email }}</p>
-  <p>Main Location: {{ user.main_location }}</p>
-  <p>Biography: {{ user.biography }}</p>
-  <p>Interests: {{ user.interests }}</p>
+<div class="profile pt-5 pb-5 text-left w-75 mx-auto mt-3">
+  <div class="profile__data  mt-5">
+    <h2 class="my-3">Profile</h2>
+    {% if user.profile_image %}
+    <p>
+      <img src="{{ user.profile_image.url }}" class="w-100 rounded border" alt="Profile Picture" />
+    </p>
+    {% else %}
+    Profile Image:
+    <p>No profile image available</p>
+    {% endif %}
+    <p class="mb-1"><strong>Username:</strong> {{ user.username }}</p>
+    <p class="mb-1"><strong>Email:</strong> {{ user.email }}</p>
+    <p class="mb-1"><strong>Main Location:</strong> {{ user.main_location }}</p>
+    <p class="mb-1"><strong>Biography:</strong> {{ user.biography }}</p>
+    <p class="mb-1"><strong>Interests:</strong> {{ user.interests }}</p>
 
-  <a href="" class="btn btn-primary">Edit Profile</a>
-  <a href="{% url 'delete_profile' %}" class="btn btn-danger">Delete Profile</a>
+    <!-- 
+    <a href="" class="btn btn-primary">Edit Profile</a>
+    -->
+    <a href="{% url 'delete_profile' %}" class="btn btn-danger mt-3 mb-3">Delete Profile</a>
+  </div>
 
-  <form action="/profile/" method="POST" enctype="multipart/form-data">
+  <form action="/profile/" method="POST" enctype="multipart/form-data" class="rounded border p-3 profile__form w-90 mx-auto mt-3">
     {% csrf_token %}
-    <label for="profile_image">Profile Image:</label>
-    <input type="file" name="profile_image" id="profile_image" />
-    <br />
-    <label for="main_location">Main Location:</label>
-    <input type="text" name="main_location" value="{{ user.main_location }}" />
-    <br />
-    <label for="biography">Biography:</label>
-    <textarea name="biography">{{ user.biography }}</textarea>
-    <br />
-    <label for="interests">Interests:</label>
-    <input type="text" name="interests" value="{{ user.interests }}" />
-    <br />
-    <input type="submit" value="Update Profile" />
-  </form>
-  <h3 class="pt-5 text-center">My Posts:</h3>
-  {% for post in user.photoimage_set.all %}
-  <div class="card text-center" style="width: 18rem;">
-    <div class="card-body">
-      <img src="{{ post.image.url }}" alt="{{ post.title }}" class="card-img-top" />
-      <p class="text">Title: {{ post.title }}</p>
-      <p class="text">Content: {{ post.content }}</p>
-      <a href="{% url 'edit_image' pk=post.id %}" class="btn btn-primary">Edit</a>
+    <div class="form-group">
+      <label for="profile_image">Profile Image:</label>
+      <input type="file" name="profile_image" id="profile_image" />
     </div>
+
+    <div class="form-group mt-2">
+      <label for="main_location">Main Location:</label>
+      <input class="form-control" type="text" name="main_location" value="{{ user.main_location }}" />
+    </div>
+
+    <div class="form-group mt-2">
+      <label for="biography">Biography:</label>
+      <textarea class="form-control" name="biography">{{ user.biography }}</textarea>
+    </div>
+    <div class="form-group mt-2">
+      <label for="interests" class="font-weight-bold">Interests:</label>
+      <input type="text" name="interests" class="form-control" value="{{ user.interests }}" />
+    </div>
+
+    <input type="submit" class="btn btn-primary mt-3" value="Update Profile" />
+
+  </form>
+
+
+  <h3 class="pt-4 text-left">My Posts:</h3>
+  {% for post in user.photoimage_set.all %}
+  <div class="card text-center mb-5" style="width: 18rem;">
+    <div class="card-body border">
+      <img src="{{ post.image.url }}" alt="{{ post.title }}" class="card-img-top" />
+        <p class="text">Title: {{ post.title }}</p>
+        <p class="text">Content: {{ post.content }}</p>
+      <a href="{% url 'edit_image' pk=post.id %}" class="btn btn-primary">Edit</a>
+      </div>
   </div>
   {% empty %}
-  <p>No posts available.</p>
+    <p class="mb-5 pb-5">No posts available.</p>
   {% endfor %}
+  </div>
+
+
+
   
 </div>
 {% endblock %}

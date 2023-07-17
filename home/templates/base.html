@@ -7,7 +7,7 @@
     <title>SummerTrails</title>
     <meta
       name="viewport"
-      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+      content="initial-scale=1,maximum-scale=1.0,user-scalable=no"
     />
 
     <!-- Main css file-->
@@ -25,13 +25,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
     <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-      crossorigin="anonymous"
-    />
-
+    <script src="https://kit.fontawesome.com/dd3b9a0c61.js" crossorigin="anonymous"></script>
     <!-- Mapbox -->
     <link
       href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css"
@@ -51,11 +45,11 @@
       {% endfor %}
     </div>
   {% endif %}
-    <nav id="navigation" class="navbar fixed-top">
+    <nav class="navbar fixed-top foreground-bg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">SummerTrails</a>
+        <a class="navbar-brand navbar-title accent-text-color" href="{% url 'home' %}">SummerTrails</a>
         <button
-          class="navbar-toggler bg-light"
+          class="navbar-toggler accent-bg"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar"
@@ -69,18 +63,18 @@
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
         >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+          <div class="offcanvas-header foreground-bg">
+            <h5 class="offcanvas-title h1 accent-text-color" id="offcanvasNavbarLabel">
               SummerTrails Menu
             </h5>
             <button
               type="button"
-              class="btn-close"
+              class="btn-close main-text-color"
               data-bs-dismiss="offcanvas"
               aria-label="Close"
             ></button>
           </div>
-          <div class="offcanvas-body">
+          <div class="offcanvas-body foreground-bg">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
                 <a
@@ -92,72 +86,45 @@
               </li>
               {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                <a class="nav-link text-light" href="{% url 'logout' %}">Logout</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                <a class="nav-link text-light" href="{% url 'profile' %}">Profile</a>
               </li>
               {% else %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                <a class="nav-link text-light" href="{% url 'signup' %}">Sign Up</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">Login</a>
               </li>
               {% endif %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'team' %}">Our Team</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li>
-                    <hr class="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </li>
-                </ul>
+                <a class="nav-link text-light" href="{% url 'team' %}">Our Team</a>
               </li>
             </ul>
-            <!-- <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <!-<button class="btn btn-outline-success" type="submit">Search</button> -->
-            <!-- </form>  -->
           </div>
         </div>
       </div>
     </nav>
+    
     <!-- Mobile view navigation -->
-    <nav class="navbar fixed-bottom navbar-light bg-light">
+    <nav class="navbar fixed-bottom navbar-light foreground-bg">
       <div class="container-fluid px-5 d-lg-none">
-        <a href="{% url 'home' %}" class="btn btn-floating">
-          <i class="bi bi-house-door-fill"></i>
+        <a href="{% url 'home' %}" class="btn btn-floating accent-bg">
+          <i class="bi bi-house-door-fill main-text-color"></i>
         </a>
-        <a href="{% url 'upload_image' %}" class="btn btn-floating">
-          <i class="bi bi-camera-fill"></i>
-        </a>
-        <a href="#" class="btn btn-floating">
-          <i class="bi bi-search"></i>
+        <a href="{% url 'upload_image' %}" class="btn btn-floating accent-bg">
+          <i class="bi bi-camera-fill main-text-color"></i>
         </a>
         {% if user.is_authenticated %}
-        <a href="{% url 'profile' %}" class="btn btn-floating">
-          <i class="bi bi-person-fill"></i>
+        <a href="{% url 'profile' %}" class="btn btn-floating accent-bg">
+          <i class="bi bi-person-fill main-text-color"></i>
           {{ user.username }}
         </a>
       {% else %}
-        <a href="{% url 'login' %}" class="btn btn-floating">
-          <i class="bi bi-person-fill-add"></i>
+        <a href="{% url 'login' %}" class="btn btn-floating main-text-color accent-bg">
+          <i class="bi bi-person-fill-add main-text-color"></i>
           Login
         </a>
       {% endif %}
@@ -165,10 +132,6 @@
     </nav>
 
     {% block content %}{% endblock content %}
-
-    <!-- Footer -->
-
-    
     <!-- jQuery -->
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script
