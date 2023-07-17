@@ -56,7 +56,11 @@ def profile(request):
         profile_image = request.FILES.get('profile_image')
         if profile_image:
             user.profile_image = profile_image
-        user.save()
+        try:
+            user.save()
+            messages.success(request, 'Profile updated successfully.')
+        except Exception as e:
+            messages.error(request, f'An error occurred: {str(e)}')
         return redirect('profile') # Redirect to profile page
     
     return render(request, 'profile.html')
@@ -69,7 +73,7 @@ def delete_profile(request):
         return redirect('/')
     return render(request, 'delete_profile.html')
 
-@login_required
+@login_required(login_url='signup')
 def upload_image(request):
     if request.method == 'POST':
         form = UploadImageForm(request.POST, request.FILES)
@@ -80,6 +84,7 @@ def upload_image(request):
             return redirect('home')
     else:
         form = UploadImageForm()
+    
     return render(request, 'upload_image.html', {'form': form})
 
 @login_required

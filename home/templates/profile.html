@@ -2,6 +2,19 @@
 {% load static %}
 {% block content %}
 <div class="profile pt-5 pb-5 text-left w-75 mx-auto mt-3">
+  {% if messages %}
+  {% for message in messages %}
+    {% if message.tags == 'success' %}
+      <div class="alert alert-success mt-4">
+        {{ message }}
+      </div>
+    {% elif message.tags == 'error' %}
+      <div class="alert alert-danger mt-4">
+        {{ message }}
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endif %}
   <div class="profile__data  mt-5">
     <h2 class="my-3">Profile</h2>
     {% if user.profile_image %}
