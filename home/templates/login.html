@@ -1,58 +1,61 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<section id="login" class="container w-75 m-auto pt-5">
-  <h2>Login Details</h2>
-  {% if messages %}
-    {% for message in messages %}
-      {% if message.tags == 'success' %}
-        <div class="alert alert-success mt-4">
-          {{ message }}
-        </div>
-      {% elif message.tags == 'error' %}
-        <div class="alert alert-danger mt-4">
-          {{ message }}
-        </div>
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-  <form action="{% url 'login' %}" method="POST">
-    {% csrf_token %}
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input
-        type="text"
-        class="form-control"
-        name="username"
-        id="username"
-        aria-label="Enter username"
-        placeholder="Enter username"
-        required
-      />
-    </div>
+<section id="login" class="container w-100 m-auto h-100 pt-5 bg-light">
+  <div class="w-75 mx-auto pt-4">
+    <h2 class="pt-5">Login Details</h2>
+    {% if messages %}
+      {% for message in messages %}
+        {% if message.tags == 'success' %}
+          <div class="alert alert-success mt-4">
+            {{ message }}
+          </div>
+        {% elif message.tags == 'error' %}
+          <div class="alert alert-danger mt-4">
+            {{ message }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    <form action="{% url 'login' %}" method="POST" class="pt-4">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          id="username"
+          aria-label="Enter username"
+          placeholder="Enter username"
+          required
+        />
+      </div>
 
-    <div class="form-group mt-2">
-      <label for="password">Password</label>
-      <input
-        type="password"
-        class="form-control"
-        name="password"
-        id="password"
-        placeholder="Password"
-        required
-      />
-    </div>
+      <div class="form-group mt-2">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          id="password"
+          placeholder="Password"
+          required
+        />
+      </div>
 
-    <button type="submit" class="btn btn-primary mt-2">Submit</button>
-    <br />
+      <button type="submit" class="accent-button btn mt-4">Submit</button>
+      <br />
 
-    <div>
-      <a href="{% url 'signup' %}"> Register </a>
-    </div>
+      <div class="mt-4">
+        <a href="{% url 'signup' %}" class="login__link"> Register </a>
+      </div>
 
-    <div class>
-      <a href="f_password.html"> Forgot Password </a>
-    </div>
-  </form>
+      <div class="mt-0">
+        <a href="#" class="login__link"> Forgot Password </a>
+      </div>
+    </form>
+
+  </div>
 </section>
 {% endblock content %}
